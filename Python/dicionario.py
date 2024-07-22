@@ -43,5 +43,6 @@ def main():
             break
     
     print("Finalizando o codigo")
+    print("Tentando usar o git no vscode")
 
 main()
