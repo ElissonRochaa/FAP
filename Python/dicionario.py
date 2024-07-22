@@ -41,5 +41,7 @@ def main():
                 print()
         if opcao == 3:
             break
+    
+    print("Finalizando o codigo")
 
 main()
