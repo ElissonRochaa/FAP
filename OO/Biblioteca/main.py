@@ -1,4 +1,5 @@
 from livro import Livro
+from biblioteca import Biblioteca
 
 def pegar_emprestado(livro):
     print("Pegando o livro emprestrado")
@@ -19,17 +20,30 @@ def main():
     meu_livro2 = Livro("Antes que o café esfrie 2",
                       "Toshikazu Kawaguchi", 2023, "Valentina")
 
-    meu_livro.exibir_infos()
+    del meu_livro3
 
-    #Pegando emprestado
-    pegar_emprestado(meu_livro)
-    #meu_livro.exibir_infos()
+    print(meu_livro)
 
-    #Pegando emprestado
-    pegar_emprestado(meu_livro)
+    biblioteca = Biblioteca("Biblioteca FAP")
 
-    #Devolvendo
-    meu_livro.devolver()
-    meu_livro.exibir_infos()
+    biblioteca.adicionar_livro(meu_livro)
+    biblioteca.adicionar_livro(meu_livro2)
+    #biblioteca.adicionar_livro(meu_livro3)
+
+    print(biblioteca)
+    #biblioteca.exibir()
+
+    # meu_livro.exibir_infos()
+
+    # #Pegando emprestado
+    # pegar_emprestado(meu_livro)
+    # #meu_livro.exibir_infos()
+
+    # #Pegando emprestado
+    # pegar_emprestado(meu_livro)
+
+    # #Devolvendo
+    # meu_livro.devolver()
+    # meu_livro.exibir_infos()
 
 main()

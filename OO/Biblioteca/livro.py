@@ -15,6 +15,12 @@ class Livro:
         #nos parametros, como é o caso do disponivel
         self.disponivel = True
 
+    def __del__(self):
+        print("Delentando um livro...")
+
+    def __str__(self):
+        return f"Livro: {self.titulo} e {self.ano}"
+
     def exibir_infos(self):
         print("-"*30)
         print("Livro:")
