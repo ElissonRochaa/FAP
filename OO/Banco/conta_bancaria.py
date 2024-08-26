@@ -19,7 +19,7 @@ class ContaBancaria(ABC):
             return True
         return False
 
-    def alterar_senha(self, senha):
+    def alterar_senha(self, senha:str) -> None:
         self.__senha = senha
 
     def depositar(self, valor):

@@ -1,14 +1,12 @@
 from conta_corrente import ContaCorrente
 from conta_poupanca import ContaPoupanca
-from conta_especial import ContaEspecial 
-from conta_bancaria import ContaBancaria
+from conta_especial import ContaEspecial
 
 def main():
     minha_conta = ContaCorrente('Elisson', '1234', 1000)
     minha_conta_poupanca = ContaPoupanca('Elisson', '1234')
     mc_especial = ContaEspecial("Bruno", '123', 0, 500, '12/12/2000')
     #conta = ContaBancaria("Teste", "1234", 10)
-
 
     print("Conta Corrente")
     print("limite: ", minha_conta.limite)
