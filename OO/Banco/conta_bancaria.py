@@ -1,10 +1,13 @@
+from abc import abstractmethod, ABC
 
-class ContaBancaria:
+##Classe vai ser abstrata
+class ContaBancaria(ABC):
     def __init__(self, titular, senha, saldo=0):
         self.titular = titular
         self.__senha = senha
         self.__saldo = saldo
 
+    @abstractmethod
     def detalhar_conta(self):
         pass
 
