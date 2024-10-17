@@ -11,3 +11,8 @@
 # Sacar
 # Alterar Senha
 # Validar Senha
+
+import random
+
+equipes = ['João','Nayara','Jonatas','Bruno']
+print(random.choices(equipes, k=4))
