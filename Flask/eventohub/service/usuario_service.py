@@ -7,9 +7,10 @@ class UsuarioService:
     @staticmethod
     def buscar_por_id(id):
         usuario = UsuarioRepository.get_by_id(id)
-        if usuario:
-            return usuario
-        raise ValueError("Usuario não cadastrado")
+        if not usuario:
+            raise ValueError("Usuario não cadastrado")
+        return usuario
+        
 
     @staticmethod
     def buscar_todos():
