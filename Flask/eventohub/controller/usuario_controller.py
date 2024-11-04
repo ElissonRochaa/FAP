@@ -29,7 +29,5 @@ def cadastrar_usuario():
         return jsonify({"Error":str(uee)}), 403
     except ValueError as e:
         return jsonify({"Error":str(e)}), 409
-    except Exception as ex:
-        return jsonify({"Error":"Error Inesperado, tente novamente mais tarde"}), 500
-
-    return 
+    # except Exception as ex:
+    #     return jsonify({"Error":"Error Inesperado, tente novamente mais tarde"}), 500

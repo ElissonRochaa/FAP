@@ -1,8 +1,9 @@
 from repository.usuario_repository import UsuarioRepository
 from entity.usuario import Usuario
 from exception.usuario_existente_exception import UsuarioExistenteException
+from werkzeug.security import generate_password_hash
 
-class UsuarioService:
+class UsuarioService:    
 
     @staticmethod
     def buscar_por_id(id):
@@ -19,13 +20,17 @@ class UsuarioService:
     
     @staticmethod
     def cadastrar_usuario(usuario):
-
+        
         usuario_email = UsuarioRepository.get_by_email(usuario.email)
         
         if usuario_email:
+            print("Entrou aqui...")
             raise UsuarioExistenteException("Email cadastrado")
 
         if len(usuario.nome) < 3:
             raise ValueError("Nome do usuario menor que 3 caracteres")
-
+        
+        #transformar a senha em hash
+        senha_hash = generate_password_hash(usuario.senha)
+        usuario.senha = senha_hash
         return UsuarioRepository.create(usuario)
