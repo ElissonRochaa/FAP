@@ -12,6 +12,10 @@ class Usuario(db.Model):
     senha = db.Column(db.String(510), nullable=False)
     #CPF
     cpf = db.Column(db.String(14))
+
+    role = db.Column(db.String(32)) #User ou Admin
+
+    
     #Registro de inscricoes
     inscricoes = db.relationship('Inscricao', backref='usuario', lazy=True)
 
