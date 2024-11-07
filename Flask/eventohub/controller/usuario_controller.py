@@ -18,18 +18,16 @@ def get_usuarios():
     usuarios = UsuarioService.buscar_todos()
     return jsonify(usuarios)
 
-@usuario_bp.route('', methods=['POST'])
-def cadastrar_usuario():
-    data = request.get_json()
-    usuario = Usuario(nome=data['nome'], email=data['email'], senha=data['senha'], cpf=data['cpf'])
-    try:
-        usuario_salvo = UsuarioService.cadastrar_usuario(usuario)
-        return jsonify(usuario_salvo.to_dict()), 201
-    except UsuarioExistenteException as uee:
-        return jsonify({"Error":str(uee)}), 403
-    except ValueError as e:
-        return jsonify({"Error":str(e)}), 409
-    except Exception as ex:
-        return jsonify({"Error":"Error Inesperado, tente novamente mais tarde"}), 500
-
-    return 
+# @usuario_bp.route('', methods=['POST'])
+# def cadastrar_usuario():
+#     data = request.get_json()
+#     usuario = Usuario(nome=data['nome'], email=data['email'], senha=data['senha'], cpf=data['cpf'])
+#     try:
+#         usuario_salvo = UsuarioService.cadastrar_usuario(usuario)
+#         return jsonify(usuario_salvo.to_dict()), 201
+#     except UsuarioExistenteException as uee:
+#         return jsonify({"Error":str(uee)}), 403
+#     except ValueError as e:
+#         return jsonify({"Error":str(e)}), 409
+    # except Exception as ex:
+    #     return jsonify({"Error":"Error Inesperado, tente novamente mais tarde"}), 500

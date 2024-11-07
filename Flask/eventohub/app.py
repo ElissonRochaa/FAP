@@ -5,6 +5,7 @@ import init_db
 from controller.usuario_controller import usuario_bp
 from controller.evento_controller import evento_bp
 from controller.inscricao_controller import inscricao_bp
+from controller.auth_controller import auth_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -16,6 +17,7 @@ init_db.init_db(app)
 app.register_blueprint(usuario_bp, url_prefix='/api/usuarios')
 app.register_blueprint(evento_bp, url_prefix='/api/eventos')
 app.register_blueprint(inscricao_bp, url_prefix='/api/inscricoes')
+app.register_blueprint(auth_bp, url_prefix='/auth')
 
 if __name__ == "__main__":
     app.run(debug=True)
