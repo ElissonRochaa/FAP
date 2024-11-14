@@ -2,6 +2,7 @@ from flask import request, jsonify, Blueprint
 from entity.usuario import Usuario
 from service.usuario_service import UsuarioService
 from exception.usuario_existente_exception import UsuarioExistenteException
+from utils.functions import role_required
 
 auth_bp = Blueprint("autenticacao", __name__)
 
@@ -21,6 +22,7 @@ def register():
     
 #Endpoint de register
 @auth_bp.route('/register/admin', methods=['POST'])
+@role_required(['Admin'])
 def register_admin():
     data = request.get_json()
     usuario = Usuario(nome=data['nome'], email=data['email'], senha=data['senha'], cpf=data['cpf'], role="Admin")

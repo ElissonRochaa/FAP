@@ -25,7 +25,7 @@ class UsuarioService:
             payload = {
                 'subject': usuario.email,
                 'role': usuario.role,
-                'exp': datetime.now() + timedelta(hours=2)
+                'exp': datetime.now() + timedelta(hours=4)
             }
 
             token = jwt.encode(payload, "FAPeventohub", algorithm="HS256")

@@ -2,16 +2,19 @@ from flask import Blueprint, jsonify, request
 from entity.evento import Evento, TipoEvento
 from service.evento_service import EventoService
 from datetime import datetime
+from utils.functions import login_required, role_required
 
 evento_bp = Blueprint('evento', __name__)
 
 
 @evento_bp.route('', methods=['GET'])
+@login_required
 def buscar_todos():
     eventos = EventoService.buscar_todos()
     return jsonify([evento.to_dict() for evento in eventos])
 
 @evento_bp.route('', methods=['POST'])
+@role_required(['Admin'])
 def criar_evento():
     data = request.get_json()
     print(data)
