@@ -20,6 +20,8 @@ class UsuarioService:
         usuario = UsuarioRepository.get_by_email(email)
         if usuario == None:
             raise UsuarioInexistenteException("Email não cadastrado")
+        #Teste...
+        print("1")
         if check_password_hash(usuario.senha, senha):
             
             payload = {
